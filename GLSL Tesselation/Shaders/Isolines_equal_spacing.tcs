@@ -1,0 +1,14 @@
+#version 420 core
+
+layout (vertices = 4) out;
+uniform vec2 TessLevelInner;
+uniform vec4 TessLevelOuter;
+void main( void )
+{
+	if ( gl_InvocationID == 0 )
+	{
+		gl_TessLevelOuter[ 0 ] = TessLevelOuter[ 0 ];
+		gl_TessLevelOuter[ 1 ] = TessLevelOuter[ 1 ];
+	}
+	gl_out[ gl_InvocationID ].gl_Position = gl_in[ gl_InvocationID ].gl_Position;
+}

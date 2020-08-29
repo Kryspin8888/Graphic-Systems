@@ -1,0 +1,24 @@
+#version 420 core
+
+layout (vertices = 4) out;
+
+// 50. Declare uniform parameters for tesselation levels ...
+
+
+
+void main( void )
+{
+	// 42. For the first invocation (0th) set outer [0..1] tesselation levels ...
+
+	if(gl_InvocationID == 0)
+	{
+		gl_TessLevelOuter[0] = 20;
+		gl_TessLevelOuter[1] = 30;
+
+	}
+
+
+	// 43. Set patch's out position based on in position ...
+
+	gl_out[gl_InvocationID].gl_Position =gl_in[gl_InvocationID].gl_Position;
+}

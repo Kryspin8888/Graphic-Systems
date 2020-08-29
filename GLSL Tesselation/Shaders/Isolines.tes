@@ -1,0 +1,15 @@
+#version 420 core
+
+layout (isolines) in;
+                                                                                     
+void main( void )
+{
+	float r, t;
+
+	// 44. Set up tesselated vertex coordinates basing one control patches and tesselation ...
+
+	r = ( gl_TessCoord.y + gl_TessCoord.x / gl_TessLevelOuter[ 0 ] );
+	t = gl_TessCoord.x * 2.0 * 3.14159;
+	gl_Position = vec4( sin( t ) * r, cos( t ) * r, 0.0, 1.0 );
+
+}                                                                 
